@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:controls="clr-namespace:MApp_SaveMe.Controls"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             x:Class="MApp_SaveMe.Views.LoginPage"
+             BackgroundImageSource="Login.jpg"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="650"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+
+            <AbsoluteLayout HorizontalOptions="FillAndExpand" HeightRequest="650" WidthRequest="200" Grid.Row="1" Grid.Column="0">
+                <Frame AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" 
+                       BackgroundColor="Transparent"
+                       Margin="0, 25, 0, 25">
+                    <StackLayout Spacing="12" Style="{StaticResource StackBasicMargin}">
+                        <StackLayout Spacing="40" Style="{StaticResource StackBasicMargin}">
+                            <Label HorizontalOptions="CenterAndExpand" Text="" Style="{StaticResource HeaderStyle_White}"></Label>
+                            <Label HorizontalOptions="CenterAndExpand" Text="" Style="{StaticResource LargeStyle_White}"></Label>
+                        </StackLayout>
+                        
+                        <Entry Placeholder="User name" WidthRequest="100" Style="{StaticResource EntryCenterStyle}" Text="{Binding UserName, Mode=TwoWay}"/>
+                        <Entry IsPassword="True" Placeholder="Password" WidthRequest="100" Style="{StaticResource EntryCenterStyle}" Text="{Binding Password, Mode=TwoWay}"/>
+                        <Button Style="{StaticResource RegularWhiteButton}" Text="Sign in" Command="{Binding LoginCommand}"></Button>
+                        <StackLayout Grid.Row="0" Grid.Column="1" Style="{StaticResource StackBasicMargin}">
+                            <Label Text="No account yet?" HorizontalOptions="Center" Style="{StaticResource RegularStyle}">
+                            </Label>
+                            <Button WidthRequest="150" Style="{StaticResource WhiteBorderButton}"  Text="Register" Command="{Binding RegisterCommand}"></Button>
+                        </StackLayout>
+                    </StackLayout>
+
+                </Frame>
+
+            </AbsoluteLayout>
+        </Grid>
+        
+
+    </ContentPage.Content>
+</ContentPage>

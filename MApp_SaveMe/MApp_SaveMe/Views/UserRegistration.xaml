@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             x:Class="MApp_SaveMe.Views.UserRegistration"
+             BackgroundImageSource="Registration.jpg">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <StackLayout Spacing="20" Style="{StaticResource StackBasicMargin}" Grid.Row="1" Grid.Column="0">
+            <Label HorizontalOptions="CenterAndExpand" Text="CREATE ACCOUNT" Style="{StaticResource HeaderStyle_White}"></Label>
+        </StackLayout>
+        
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--<AbsoluteLayout HorizontalOptions="FillAndExpand" WidthRequest="100" Grid.Row="0" Grid.Column="0">
+            <Frame AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" 
+                       BackgroundColor="Transparent"
+                       Margin="0, 25, 0, 25">
+                
+                <StackLayout Spacing="9" Style="{StaticResource StackBasicMargin}">
+                    <StackLayout Spacing="20" Style="{StaticResource StackBasicMargin}">
+                        <Label HorizontalOptions="CenterAndExpand" Text="REGISTER" Style="{StaticResource HeaderStyle_White}"></Label>
+                    </StackLayout>
+                    
+            <Label HorizontalOptions="CenterAndExpand" Text="REGISTER" Style="{StaticResource HeaderStyle_White}"></Label>
+            
+                    <Entry Placeholder="First Name"  WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding FirstName, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Middle Name" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding MiddleName, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Last Name" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding LastName, Mode=TwoWay}"/>
+
+                    <Picker x:Name="MaritalStatusPicker"                                
+                                Title="Marital Status"
+                                TitleColor="White"
+                            HorizontalOptions="StartAndExpand"
+                            SelectedItem="{Binding MaritalStatus, Mode=TwoWay}"
+                                >
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Single</x:String>
+                                <x:String>Married</x:String>
+                                <x:String>Divorcee</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Entry Placeholder="Age" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Keyboard="Numeric" Text="{Binding Age, Mode=TwoWay}"/>
+
+                    <Picker x:Name="GenderPicker"                               
+                                Title="Gender"
+                                TitleColor="White"
+                            HorizontalOptions="StartAndExpand"
+                            SelectedItem="{Binding Gender, Mode=TwoWay}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Male</x:String>
+                                <x:String>Female</x:String>
+                                <x:String>Other</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Entry Placeholder="Adults in family" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Keyboard="Numeric" Text="{Binding AdultsInFamily, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Kids in family" WidthRequest="100" Style="{StaticResource EntryStartStyle}"  Keyboard="Numeric" Text="{Binding KidsInFamily, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Username" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding UserName, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Password" IsPassword="True" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding Password, Mode=TwoWay}"/>
+
+                    <Button WidthRequest="100" Style="{StaticResource RegularWhiteButton}" Text="Register" Command="{Binding RegisterCommand}"></Button>
+
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>-->
+            <StackLayout Spacing="9" Style="{StaticResource StackBasicMargin_HomeTile}" Grid.Row="0" Grid.Column="0">
+
+                <Entry Placeholder="First Name"  WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding FirstName, Mode=TwoWay}"/>
+
+                <Entry Placeholder="Last Name" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding LastName, Mode=TwoWay}"/>
+
+                <Entry Placeholder="Age" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Keyboard="Numeric" Text="{Binding Age, Mode=TwoWay}"/>
+
+                <Entry Placeholder="Adults in family" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Keyboard="Numeric" Text="{Binding AdultsInFamily, Mode=TwoWay}"/>
+
+                <Entry Placeholder="Username" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding UserName, Mode=TwoWay}"/>
+                
+
+            </StackLayout>
+
+            <StackLayout Spacing="9" Style="{StaticResource StackBasicMargin_HomeTile}" Grid.Row="0" Grid.Column="1">
+                <Entry Placeholder="Middle Name" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding MiddleName, Mode=TwoWay}"/>
+
+                <Picker x:Name="MaritalStatusPicker"                                
+                                Title="Marital Status"
+                                TitleColor="{StaticResource WhiteColorCode}"
+                                TextColor="{StaticResource WhiteColorCode}"
+                            HorizontalOptions="StartAndExpand"
+                            SelectedItem="{Binding MaritalStatus, Mode=TwoWay}"
+                                >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Single</x:String>
+                            <x:String>Married</x:String>
+                            <x:String>Divorcee</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Picker x:Name="GenderPicker"                               
+                                Title="Gender"
+                                TitleColor="{StaticResource WhiteColorCode}"
+                                TextColor="{StaticResource WhiteColorCode}"
+                            HorizontalOptions="StartAndExpand"
+                            SelectedItem="{Binding Gender, Mode=TwoWay}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                            <x:String>Other</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Entry Placeholder="Kids in family" WidthRequest="100" Style="{StaticResource EntryStartStyle}"  Keyboard="Numeric" Text="{Binding KidsInFamily, Mode=TwoWay}"/>
+
+                <Entry Placeholder="Password" IsPassword="True" WidthRequest="100" Style="{StaticResource EntryStartStyle}" Text="{Binding Password, Mode=TwoWay}"/>
+
+            </StackLayout>
+        </Grid>
+
+        <StackLayout Spacing="40" Style="{StaticResource StackBasicMargin_Start}" Grid.Row="3" Grid.Column="0">
+
+            <Button WidthRequest="250" Style="{StaticResource WhiteBorderButton}" Text="Read Terms and Conditions" Command="{Binding TermsCommand}"></Button>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <CheckBox IsChecked="{Binding IsConsentAccepted, Mode=TwoWay}" Grid.Row="0" Grid.Column="0" Margin="40,0,0,10"/>
+                <StackLayout Margin="0,10,10,0" Grid.Row="0" Grid.Column="1">
+                    <Label Style="{StaticResource MediumStyle_White}" Text="I accept the give my consent to the Consent Form">
+                    </Label>
+                </StackLayout>
+            </Grid>
+            
+            
+            
+            <Button HorizontalOptions="CenterAndExpand" WidthRequest="200" Style="{StaticResource RegularWhiteButton}" Text="Register" Command="{Binding RegisterCommand}"></Button>
+        </StackLayout>
+
+    </Grid>
+    
+    
+</ContentPage>

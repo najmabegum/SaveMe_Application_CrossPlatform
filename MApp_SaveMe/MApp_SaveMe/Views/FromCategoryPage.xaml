@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:behaviors="clr-namespace:MApp_SaveMe.Behaviors"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             Title="Add Amount From Category"
+             x:Class="MApp_SaveMe.Views.FromCategoryPage"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Frame BackgroundColor="{StaticResource Pink}" Grid.Row="0" Grid.Column="0">
+                <Label  HorizontalOptions="StartAndExpand" Text="Add Amount - From An Existing Category" VerticalOptions="CenterAndExpand" Style="{StaticResource LargeStyle_Black}"></Label>
+            </Frame>
+            
+            <AbsoluteLayout HorizontalOptions="CenterAndExpand" HeightRequest="400" WidthRequest="350" Grid.Row="1" Grid.Column="0">
+                <Frame AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" 
+                       BackgroundColor="Transparent"
+                       Margin="0, 25, 0, 25">
+                    <StackLayout Spacing="10" Style="{StaticResource StackBasicMargin}">
+
+                        <Picker x:Name="CategoryPickerFrom"                                
+                                Title="From Category"
+                                TitleColor="Black"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding Categories}"
+                                SelectedItem="{Binding FromCategorySelected, Mode=TwoWay}"                                 
+                                >
+                            <Picker.Behaviors>
+                                <behaviors:EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding CategoryChangedCommandItemTapped}"></behaviors:EventToCommandBehavior>
+                            </Picker.Behaviors>
+                        </Picker>
+
+                        <Picker x:Name="CategoryPickerTo"                                
+                                Title="To Category"
+                                TitleColor="Black"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding Categories}"
+                                SelectedItem="{Binding ToCategorySelected, Mode=TwoWay}"                                
+                                >
+                        </Picker>
+
+                        <Label HorizontalOptions="FillAndExpand"
+                               Text="{Binding MaxToBeAddedWarning}" Style="{StaticResource MediumStyle_DarkGray}">
+
+                        </Label>
+                        <Entry Placeholder="Amount" HorizontalOptions="FillAndExpand" Style="{StaticResource EntryCenterStyle_Black}" Keyboard="Numeric" Text="{Binding Amount, Mode=TwoWay}"/>
+
+                        <Button Style="{StaticResource RegularBlueButton}" Text="Save" Command="{Binding SaveCommand}"></Button>
+                    </StackLayout>
+                </Frame>
+            </AbsoluteLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

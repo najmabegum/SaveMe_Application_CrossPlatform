@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:behaviors="clr-namespace:MApp_SaveMe.Behaviors"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             Title="Add Amount From External Source"
+             x:Class="MApp_SaveMe.Views.ExternalSourcePage"             >
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="400"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Frame BackgroundColor="{StaticResource Pink}" Grid.Row="0" Grid.Column="0">
+                <Label  HorizontalOptions="StartAndExpand" Text="Add Amount - From An External Source" Style="{StaticResource LargeStyle_Black}" VerticalOptions="CenterAndExpand"></Label>
+            </Frame>
+
+            <Frame BackgroundColor="{StaticResource PalePink}" Grid.Row="1" Grid.Column="0" BorderColor="DarkSlateGray" Margin="25,25,25,0">
+                <Label  HorizontalOptions="StartAndExpand" 
+                        Text="Use this to add additional amount to a category if the expense exceeds the planned budget" 
+                        Style="{StaticResource MediumStyle_Black}" VerticalOptions="CenterAndExpand"></Label>
+            </Frame>
+
+            <AbsoluteLayout HorizontalOptions="CenterAndExpand" HeightRequest="400" WidthRequest="350" Grid.Row="2" Grid.Column="0">
+                <Frame AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" 
+                       BackgroundColor="Transparent"
+                       Margin="0, 0, 0, 25">
+                    <StackLayout Spacing="10" Style="{StaticResource StackBasicMargin}">
+
+                        <Picker x:Name="CategoryPicker"                                
+                                Title="Categories"
+                                TitleColor="Black"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding Categories}"
+                                SelectedItem="{Binding CategorySelected, Mode=TwoWay}"                                
+                                >
+                        </Picker>
+                       
+                        <Entry Placeholder="Amount" HorizontalOptions="FillAndExpand" Style="{StaticResource EntryStartStyle_Black}" Keyboard="Numeric" Text="{Binding Amount, Mode=TwoWay}"/>
+
+                        <Button Style="{StaticResource RegularBlueButton}" Text="Save" Command="{Binding SaveCommand}"></Button>
+                    </StackLayout>
+                </Frame>
+            </AbsoluteLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             Title="Add Additional Amount"
+             x:Class="MApp_SaveMe.Views.AddExtraExpensePage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button BackgroundColor="PeachPuff" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    Text="From Another Category" Margin="5" x:Name="FromAnotherCategoryButton" Command="{Binding FromAnotherCategory}"
+                    Grid.Row="0" Grid.Column="0"
+                    >
+            </Button>
+            <Button BackgroundColor="IndianRed" TextColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    Text="From External Source" Margin="5" x:Name="FromExternalSourceButton" Command="{Binding FromExternalSource}"
+                    Grid.Row="1" Grid.Column="0"
+                    >
+            </Button>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

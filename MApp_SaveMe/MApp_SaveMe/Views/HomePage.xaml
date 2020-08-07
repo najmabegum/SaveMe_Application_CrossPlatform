@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:views="clr-namespace:MApp_SaveMe.Views"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             x:Class="MApp_SaveMe.Views.HomePage"
+             xmlns:pages="clr-namespace:MApp_SaveMe.Views">
+    <MasterDetailPage.Master>
+        <!--<pages:HomePageMaster x:Name="MasterPage" />-->
+        <views:HomePageMaster BindingContext="{Binding MenuViewModel}" />
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <!--<NavigationPage>
+      <x:Arguments>
+        <pages:HomePageDetail />
+      </x:Arguments>
+    </NavigationPage>-->
+        <ContentPage></ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

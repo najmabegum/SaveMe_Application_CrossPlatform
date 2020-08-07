@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:controls="clr-namespace:MApp_SaveMe.Controls"
+             x:Class="MApp_SaveMe.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Colors-->
+            <Color x:Key="WhiteColorCode">#FFFFFF</Color>
+            <Color x:Key="EntryGrey">Gray</Color>
+            <Color x:Key="LightGrey">#D3D3D3</Color>
+            <Color x:Key="DarkGrey">#a9a9a9</Color>
+            <Color x:Key="DarkGrey2">#303030</Color>
+            <Color x:Key="PlainGrey">#aaaaaa</Color>
+            <Color x:Key="Blue">#5C7CF5</Color>
+            <Color x:Key="Red">#c40808</Color>
+            <Color x:Key="PastelRed">#F47C7C</Color>
+            <Color x:Key="Black">Black</Color>
+            <Color x:Key="AppStartPageBackground">#121769</Color>
+            <Color x:Key="HeaderGrey">#aaaaaa</Color>
+            <Color x:Key="HomeTile">#FFDAB9</Color>
+            <Color x:Key="TransparentColor">Transparent</Color>
+            <Color x:Key="Pink">Pink</Color>
+            <Color x:Key="LightBlue">LightBlue</Color>
+            <Color x:Key="PastelPurple">#CAA7BD</Color>
+            <Color x:Key="PastelOrange">#FECE8C</Color>
+            <Color x:Key="PastelGreen">#AFDAC1</Color>
+            <Color x:Key="PalePink">#FDDEDE</Color>
+            <Color x:Key="Melon">#FEB5AC</Color>
+            <Color x:Key="Purple1">#C1BBDD</Color>
+            <Color x:Key="Purple2">#EBCEED</Color>
+            <Color x:Key="LightRed">#F6CACB</Color>
+
+            <!--Platform-->
+            <OnPlatform x:Key="SmallFontSize"
+                        x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="14" />
+                <On Platform="Android, UWP, WinRT, WinPhone" Value="11" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="MediumFontSize"
+                        x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="18" />
+                <On Platform="Android, UWP, WinRT, WinPhone" Value="16" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="LargeFontSize"
+                        x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="20" />
+                <On Platform="Android, UWP, WinRT, WinPhone" Value="20" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="HeaderFontSize"
+                        x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="28" />
+                <On Platform="Android, UWP, WinRT, WinPhone" Value="26" />
+            </OnPlatform>
+
+            <!--Styles-->
+
+            <Style x:Key="Home_Frame1" TargetType="{x:Type Frame}">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource PalePink}" />
+            </Style>
+
+            <Style x:Key="Home_Frame2" TargetType="{x:Type Frame}">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource Melon}" />
+            </Style>
+
+            <Style x:Key="PageHeaderStyle" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource HeaderGrey}" />
+            </Style>
+            
+            <Style x:Key="RegularStyle" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource PlainGrey}" />
+            </Style>
+
+            <Style x:Key="RegularStyle_White" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}" />
+            </Style>
+
+            <Style x:Key="MediumStyle" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource PlainGrey}" />
+            </Style>
+
+            <Style x:Key="MediumStyle_DarkGray" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource DarkGrey2}" />
+            </Style>
+
+            <Style x:Key="MediumStyle_Black" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+            </Style>
+
+            <Style x:Key="MediumStyle_White" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}" />
+            </Style>
+
+            <Style x:Key="LargeStyle_White" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}" />
+            </Style>
+
+            <Style x:Key="LargeStyle_Black" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+            </Style>
+
+            <Style x:Key="HeaderStyle_White" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource HeaderFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}" />
+            </Style>
+
+            <Style x:Key="HeaderStyle_Black" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource HeaderFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+            </Style>
+
+
+            <Style x:Key="RoundedEntryStyle" TargetType="{x:Type controls:RoundedEntry}">
+                <Setter Property="CornerRadius" Value="3"></Setter>
+                <Setter Property="IsCurvedCornersEnabled" Value="True"></Setter>
+                <Setter Property="BorderColor" Value="{StaticResource LightGrey}"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+                <Setter Property="FontSize" Value="{StaticResource SmallFontSize}"></Setter>
+                <Setter Property="HeightRequest" Value="30"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource PlainGrey}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource EntryGrey}"></Setter>
+            </Style>
+            
+            <Style x:Key="EntryStartStyle" TargetType="{x:Type Entry}">
+                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource WhiteColorCode}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}"></Setter>
+            </Style>
+
+            <Style x:Key="EntryStartStyle_Black" TargetType="{x:Type Entry}">
+                <Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource Black}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource Black}"></Setter>
+            </Style>
+
+            <Style x:Key="EntryCenterStyle" TargetType="{x:Type Entry}">
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource WhiteColorCode}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}"></Setter>
+            </Style>
+
+            <Style x:Key="EntryCenterStyle_Black" TargetType="{x:Type Entry}">
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource Black}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource Black}"></Setter>
+            </Style>
+
+            <Style x:Key="RegularWhiteButton" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColorCode}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource EntryGrey}"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+            </Style>
+
+            <Style x:Key="RegularBlueButton" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{StaticResource PastelRed}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+            </Style>
+
+            <Style x:Key="WhiteBorderButton" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{StaticResource TransparentColor}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}"></Setter>
+                <Setter Property="BorderWidth" Value="2"></Setter>
+                <Setter Property="BorderColor" Value="{StaticResource WhiteColorCode}"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+            </Style>
+
+            <Style x:Key="LongDescriptionStyle" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}"></Setter>
+                <Setter Property="VerticalOptions" Value="Start"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            </Style>
+
+            <Style x:Key="SavingsBlock" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource PalePink}"></Setter>
+            </Style>
+
+            <Style x:Key="LongDescriptionStyle_Black" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource Black}"></Setter>
+                <Setter Property="VerticalOptions" Value="Start"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            </Style>
+
+            
+            <!--<Style x:Key="PageHeaderStyle" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="{StaticResource HeaderFontSize}"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColorCode}" />
+            </Style>-->
+
+            <Style x:Key="StackBasicMargin_HomeTile" TargetType="{x:Type StackLayout}">
+                <Setter Property="Margin" Value="30, 30"></Setter>
+            </Style>
+
+            <Style x:Key="StackBasicMargin_Start" TargetType="{x:Type StackLayout}">
+                <Setter Property="Margin" Value="0, 30"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            </Style>
+
+            <Style x:Key="StackBasicMargin" TargetType="{x:Type StackLayout}">
+                <Setter Property="Margin" Value="0, 30"></Setter>
+            </Style>
+
+            <Style x:Key="StackBasicMargin_Home" TargetType="{x:Type StackLayout}">
+                <Setter Property="Margin" Value="30, 30"></Setter>
+            </Style>
+
+            <Style x:Key="StackBasicMargin_Register" TargetType="{x:Type StackLayout}">
+                <Setter Property="Margin" Value="30, 0"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

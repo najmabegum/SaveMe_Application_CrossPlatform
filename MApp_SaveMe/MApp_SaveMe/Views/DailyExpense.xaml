@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             Title="Home"
+             x:Class="MApp_SaveMe.Views.DailyExpense"
+             BackgroundColor="{StaticResource WhiteColorCode}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="420"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Frame BackgroundColor="{StaticResource WhiteColorCode}" Grid.Row="0" Grid.Column="0">
+                <Label  HorizontalOptions="StartAndExpand" Text="{Binding Greeting}" Style="{StaticResource HeaderStyle_Black}"></Label>
+            </Frame>
+            
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <!--<ColumnDefinition Width="270"></ColumnDefinition>-->
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Row="0" Grid.Column="0" Style="{StaticResource Home_Frame1}" HeightRequest="70">
+                    <StackLayout>
+                        <Label HorizontalOptions="StartAndExpand" Text="Total expense plan for the week:" Style="{StaticResource LargeStyle_Black}"></Label>
+                        <Label HorizontalOptions="StartAndExpand" Text="{Binding CurrentWeekTotalExpenditure}" Style="{StaticResource LargeStyle_Black}"></Label>
+                    </StackLayout>
+                </Frame>
+                <!--<Frame Grid.Row="0" Grid.Column="1" Style="{StaticResource Home_Frame2}" HeightRequest="70">
+                    <Label HorizontalOptions="StartAndExpand" Text="{Binding CurrentWeekTotalExpenditure}" Style="{StaticResource LargeStyle_Black}"></Label>
+                </Frame>-->
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <AbsoluteLayout HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" HeightRequest="200">
+                    <Frame AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" 
+                       BackgroundColor="{StaticResource Purple1}"
+                       Margin="0, 0, 0, 0">
+                        <StackLayout Spacing="10">
+                            <Label HorizontalOptions="FillAndExpand" Text="Current Week Expense Amount:" Style="{StaticResource LargeStyle_Black}"></Label>
+                            <Label HorizontalOptions="StartAndExpand" Text="{Binding CurrentWeekExpenses}" Style="{StaticResource LargeStyle_Black}"></Label>
+                        </StackLayout>
+                    </Frame>
+                </AbsoluteLayout>
+
+                <AbsoluteLayout HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1">
+                    <Frame AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" 
+                       BackgroundColor="{StaticResource Purple2}"
+                       Margin="0, 0, 0, 0">
+                        <StackLayout Spacing="10">
+                            <Label HorizontalOptions="StartAndExpand" Text="Current Week Savings Amount:" Style="{StaticResource LargeStyle_Black}"></Label>
+                            <Label HorizontalOptions="StartAndExpand" Text="{Binding CurrentWeekSavings}" Style="{StaticResource LargeStyle_Black}"></Label>
+                        </StackLayout>
+                    </Frame>
+                </AbsoluteLayout>
+
+                
+
+            </Grid>
+
+            <AbsoluteLayout HorizontalOptions="FillAndExpand" HeightRequest="280" WidthRequest="200" Grid.Row="3" Grid.Column="0">
+                <Frame AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" 
+                       BackgroundColor="{StaticResource WhiteColorCode}"
+                       Margin="0, 10, 0, 80">
+                    <StackLayout Spacing="10" Style="{StaticResource StackBasicMargin_HomeTile}">
+                        <StackLayout Spacing="30">
+                            <Label HorizontalOptions="CenterAndExpand" Text="Add Daily Expense" Style="{StaticResource LargeStyle_Black}"></Label>
+                        </StackLayout>
+                        <Picker x:Name="CategoryPicker"                                
+                                Title="Categories"
+                                TitleColor="{StaticResource Black}"
+                                TextColor="{StaticResource Black}"
+                                HorizontalOptions="FillAndExpand"
+                                WidthRequest="200"
+                                ItemsSource="{Binding Categories}"
+                                SelectedItem="{Binding CategorySelected, Mode=TwoWay}"
+                                >
+                        </Picker>
+
+                        <Entry WidthRequest="100" Placeholder="Amount" HorizontalOptions="FillAndExpand" Style="{StaticResource EntryStartStyle_Black}" Keyboard="Numeric" Text="{Binding Amount, Mode=TwoWay}"/>
+
+                        <Button Style="{StaticResource RegularBlueButton}" Text="Save" Command="{Binding SaveCommand}"></Button>
+                    </StackLayout>
+                </Frame>
+            </AbsoluteLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

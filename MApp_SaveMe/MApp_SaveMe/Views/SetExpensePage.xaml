@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             Title="Reset Expense"
+             x:Class="MApp_SaveMe.Views.SetExpensePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="55"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Frame BackgroundColor="{StaticResource Pink}" Grid.Row="0" Grid.Column="0">
+                    <Label  HorizontalOptions="StartAndExpand" Text="Expense Plan for Current Week" Style="{StaticResource LargeStyle_Black}"></Label>
+                </Frame>
+                
+              <ListView x:Name="ResetExpenseListView" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0"
+              CachingStrategy="RecycleElement" HasUnevenRows="True"
+              ItemsSource="{Binding ExpenseList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="75">
+                                <Grid Margin="5" BackgroundColor="Transparent" RowSpacing="4">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" HeightRequest="100" WidthRequest="200" Style="{StaticResource MediumStyle_Black}" Text="{Binding CategoryName}"></Label>
+                                    <Entry Grid.Row="0"  Grid.Column="1" HeightRequest="100" WidthRequest="200" Keyboard="Numeric" Placeholder="Amount" 
+                                           BackgroundColor="{StaticResource PalePink}"
+                               Style="{StaticResource EntryStartStyle_Black}"
+                               Text="{Binding Amount, Mode=TwoWay}"></Entry>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <StackLayout Grid.Row="2" Grid.Column="0" Margin="{Binding StackBasicMargin}">
+                    <Button WidthRequest="150" Style="{StaticResource RegularBlueButton}" Text="Save" Command="{Binding SaveCommand}"></Button>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

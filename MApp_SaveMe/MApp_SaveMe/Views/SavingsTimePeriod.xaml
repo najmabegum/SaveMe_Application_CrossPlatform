@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             Title="Savings - Time Period"
+             x:Class="MApp_SaveMe.Views.SavingsTimePeriod"
+             >
+    <ContentPage.Content>
+        <Grid Margin="25,25,25,25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="450"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Current Month"  
+                    x:Name="CurrentMonthButton" Command="{Binding CurrentMonth}" Style="{StaticResource SavingsBlock}"
+                    Grid.Row="0" Grid.Column="0"></Button>
+                <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Previous Month" 
+                    x:Name="PreviousMonthButton" Command="{Binding PreviousMonth}" Style="{StaticResource SavingsBlock}"
+                    Grid.Row="0" Grid.Column="1"></Button>
+                <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Last 6 Months" 
+                    x:Name="HalfYearMonthButton" Command="{Binding HalfYear}" Style="{StaticResource SavingsBlock}"
+                    Grid.Row="1" Grid.Column="0"></Button>
+                <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Last Year" 
+                        x:Name="OneMonthButton" Command="{Binding OneYear}" Style="{StaticResource SavingsBlock}"
+                    Grid.Row="1" Grid.Column="1"></Button>
+            </Grid>
+            
+            
+            
+            <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Total Savings" 
+                    x:Name="TotalButton" Command="{Binding TotalSavings}" Style="{StaticResource SavingsBlock}"
+                    Grid.Row="1" Grid.Column="0"></Button>
+            <!--<AbsoluteLayout HorizontalOptions="FillAndExpand" HeightRequest="300" WidthRequest="200" Grid.Row="1" Grid.Column="0">
+                <Frame AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" 
+                       BackgroundColor="Transparent"
+                       Margin="0, 25, 0, 25">
+                    <StackLayout Style="{StaticResource StackBasicMargin_Home}">
+                        <Button HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Current Month" Margin="5" x:Name="CurrentMonthButton" Command="{Binding CurrentMonth}"></Button>
+                        <Button HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Previous Month" Margin="5" x:Name="PreviousMonthButton" Command="{Binding PreviousMonth}"></Button>
+                        <Button HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Last 6 Months" Margin="5" x:Name="HalfYearMonthButton" Command="{Binding HalfYear}"></Button>
+                        <Button HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Last Year" Margin="5" x:Name="OneMonthButton" Command="{Binding OneYear}"></Button>
+                        <Button HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Total Savings" Margin="5" x:Name="TotalButton" Command="{Binding TotalSavings}"></Button>
+                    </StackLayout>
+                </Frame>
+            </AbsoluteLayout>-->
+        </Grid>
+       
+    </ContentPage.Content>
+</ContentPage>

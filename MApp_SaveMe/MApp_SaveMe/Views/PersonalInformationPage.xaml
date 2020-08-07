@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             Title="Update Personal Information"
+             x:Class="MApp_SaveMe.Views.PersonalInformationPage"
+             BackgroundImageSource="AppPage.jpg">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Frame Grid.Row="0" Grid.Column="1" Margin="20,70,0,0" HorizontalOptions="CenterAndExpand" WidthRequest="80" 
+               VerticalOptions="CenterAndExpand" HeightRequest="80">
+                <StackLayout>
+                    <Image Source="AvatarMale.jpg" IsVisible="{Binding IsMale}"></Image>
+                    <Image Source="AvatarFemale.jpg" IsVisible="{Binding IsFemale}"></Image>
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+        <Frame BackgroundColor="{StaticResource LightRed}" Grid.Row="1" Grid.Column="0" Margin="25,10,25,0">
+            <Label WidthRequest="100" Style="{StaticResource MediumStyle_DarkGray}" Text="{Binding FirstName}"/>
+        </Frame>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackLayout Spacing="10" Style="{StaticResource StackBasicMargin_HomeTile}" Grid.Row="0" Grid.Column="0">
+
+                <Entry Placeholder="Middle Name" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}" Text="{Binding MiddleName, Mode=TwoWay}"/>
+
+                <Picker x:Name="MaritalStatusPicker"                                
+                                Title="Marital Status"
+                                TitleColor="Black"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding MaritalStatusDropdown}"
+                                SelectedItem="{Binding MaritalStatus, Mode=TwoWay}"
+                                >
+                </Picker>
+
+                <Picker x:Name="GenderPicker"                               
+                                Title="Gender"
+                                TitleColor="Black"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding GenderDropdown}"
+                                SelectedItem="{Binding Gender, Mode=TwoWay}">
+                </Picker>
+
+                <Entry Placeholder="Kids in family" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}"  Keyboard="Numeric" Text="{Binding KidsInFamily, Mode=TwoWay}"/>
+                
+
+            </StackLayout>
+
+            <StackLayout Spacing="10" Style="{StaticResource StackBasicMargin_HomeTile}" Grid.Row="0" Grid.Column="1">
+
+                <Entry Placeholder="Last Name" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}" Text="{Binding LastName, Mode=TwoWay}"/>
+                
+                <Entry Placeholder="Age" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}" Keyboard="Numeric" Text="{Binding Age, Mode=TwoWay}"/>
+
+                <Entry Placeholder="Adults in family" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}" Keyboard="Numeric" Text="{Binding AdultsInFamily, Mode=TwoWay}"/>
+
+            </StackLayout>
+        </Grid>
+
+        <StackLayout Grid.Row="3" Grid.Column="0" Style="{StaticResource StackBasicMargin_HomeTile}">
+            <Button WidthRequest="100" Style="{StaticResource RegularBlueButton}" Text="Update" Command="{Binding UpdateCommand}"></Button>
+        </StackLayout>
+
+        <!--<AbsoluteLayout HorizontalOptions="FillAndExpand" WidthRequest="200" Grid.Row="1" Grid.Column="1">
+            <Frame AbsoluteLayout.LayoutFlags="SizeProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1" 
+                       BackgroundColor="Transparent"
+                       Margin="0, 25, 0, 25">
+                <StackLayout Spacing="10" Style="{StaticResource StackBasicMargin}">
+                    <Label WidthRequest="100" Style="{StaticResource MediumStyle_DarkGray}" Text="{Binding FirstName}"/>
+
+                    <Entry Placeholder="Middle Name" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}" Text="{Binding MiddleName, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Last Name" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}" Text="{Binding LastName, Mode=TwoWay}"/>
+
+                    <Picker x:Name="MaritalStatusPicker"                                
+                                Title="Marital Status"
+                                TitleColor="Black"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding MaritalStatusDropdown}"
+                                SelectedItem="{Binding MaritalStatus, Mode=TwoWay}"
+                                >
+                    </Picker>
+                    <Entry Placeholder="Age" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}" Keyboard="Numeric" Text="{Binding Age, Mode=TwoWay}"/>
+
+                    <Picker x:Name="GenderPicker"                               
+                                Title="Gender"
+                                TitleColor="Black"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding GenderDropdown}"
+                                SelectedItem="{Binding Gender, Mode=TwoWay}">
+                    </Picker>
+
+                    <Entry Placeholder="Adults in family" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}" Keyboard="Numeric" Text="{Binding AdultsInFamily, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Kids in family" WidthRequest="100" Style="{StaticResource EntryStartStyle_Black}"  Keyboard="Numeric" Text="{Binding KidsInFamily, Mode=TwoWay}"/>
+
+                    <Button WidthRequest="100" Style="{StaticResource RegularBlueButton}" Text="Update" Command="{Binding UpdateCommand}"></Button>
+
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>-->
+
+    </Grid>
+</ContentPage>

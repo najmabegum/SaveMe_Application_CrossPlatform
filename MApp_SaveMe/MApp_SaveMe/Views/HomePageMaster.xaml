@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:behaviors="clr-namespace:MApp_SaveMe.Behaviors"
+             xmlns:utility="clr-namespace:MApp_SaveMe.Utility"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             x:Class="MApp_SaveMe.Views.HomePageMaster"
+             Title="Master"
+             BackgroundColor="{StaticResource WhiteColorCode}">
+    <StackLayout>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="8*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <!--<Grid BackgroundColor="#444444" Opacity="0.8"/>
+                <Label Text="{Binding WelcomeText}" Style="{StaticResource RegularStyle}"/>-->
+                <Image Source="AppLogo.jpg" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ListView ItemsSource="{Binding MenuItems}"  CachingStrategy="RecycleElement"
+                SeparatorVisibility="None" HasUnevenRows="True" >
+                    <ListView.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="ItemTapped" Command="{Binding MenuItemTappedCommand}"></behaviors:EventToCommandBehavior>
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnSpacing="12" Padding="10, 10, 0, 10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1" Text="{Binding MenuText}" VerticalOptions="Center" Style="{StaticResource MediumStyle_Black}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </StackLayout>
+</ContentPage>
