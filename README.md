@@ -5,6 +5,7 @@
 1. Install Visual Studio (Version used to develop the project is Visual Studio 2019)
 2. Open the folder in Visual Studio
 3. Install an Android Emulator or enable USB debugging in your android phone to run the application
+4. Install the application dependencies using Nuget Manager in Visual Studio
 
 ## Build
 
